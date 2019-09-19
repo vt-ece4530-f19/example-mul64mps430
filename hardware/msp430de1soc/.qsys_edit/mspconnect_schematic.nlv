@@ -1,0 +1,26 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst mspconnect.master_0.clk_src -pg 1
+preplace inst mspconnect -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst mspconnect.master_0.fifo -pg 1
+preplace inst mspconnect.master_0.clk_rst -pg 1
+preplace inst mspconnect.master_0.jtag_phy_embedded_in_jtag_master -pg 1
+preplace inst mspconnect.master_0.p2b -pg 1
+preplace inst mspconnect.master_0.b2p -pg 1
+preplace inst mspconnect.master_0.timing_adt -pg 1
+preplace inst mspconnect.master_0.b2p_adapter -pg 1
+preplace inst mspconnect.rs232_0 -pg 1 -lvl 3 -y 30
+preplace inst mspconnect.master_0.transacto -pg 1
+preplace inst mspconnect.master_0 -pg 1 -lvl 2 -y 100
+preplace inst mspconnect.clk_0 -pg 1 -lvl 1 -y 130
+preplace inst mspconnect.rs232_1 -pg 1 -lvl 3 -y 150
+preplace inst mspconnect.master_0.p2b_adapter -pg 1
+preplace netloc EXPORT<net_container>mspconnect</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)mspconnect.reset) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>mspconnect</net_container>(SLAVE)master_0.clk,(MASTER)clk_0.clk,(SLAVE)rs232_1.clk,(SLAVE)rs232_0.clk) 1 1 2 380 180 660
+preplace netloc FAN_OUT<net_container>mspconnect</net_container>(SLAVE)master_0.clk_reset,(MASTER)clk_0.clk_reset,(SLAVE)rs232_1.reset,(SLAVE)rs232_0.reset) 1 1 2 400 220 700
+preplace netloc EXPORT<net_container>mspconnect</net_container>(SLAVE)clk_0.clk_in,(SLAVE)mspconnect.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>mspconnect</net_container>(SLAVE)mspconnect.rs232_1_external_interface,(SLAVE)rs232_1.external_interface) 1 0 3 NJ 200 NJ 200 NJ
+preplace netloc FAN_OUT<net_container>mspconnect</net_container>(SLAVE)rs232_1.avalon_rs232_slave,(MASTER)master_0.master,(SLAVE)rs232_0.avalon_rs232_slave) 1 2 1 680
+preplace netloc EXPORT<net_container>mspconnect</net_container>(SLAVE)rs232_0.external_interface,(SLAVE)mspconnect.rs232_0_external_interface) 1 0 3 NJ 60 NJ 60 NJ
+levelinfo -pg 1 0 170 890
+levelinfo -hier mspconnect 180 210 480 730 880
